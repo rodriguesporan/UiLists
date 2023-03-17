@@ -4,21 +4,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.adapter.AffirmationAdapter
-import com.rodriguesporan.uilists.data.AffirmationDatasource
+import com.rodriguesporan.uilists.adapter.CardMessageAdapter
+import com.rodriguesporan.uilists.data.CardMessageDatasource
 
-internal class TextDataItemLinearFixedDataSetListActivity : AppCompatActivity() {
+class CustomDataItemLinearFixedDataSetListActivity : AppCompatActivity() {
 
+    private val datasource: CardMessageDatasource = CardMessageDatasource()
     private val recyclerView: RecyclerView by lazy { findViewById(R.id.recycler_view) }
-    private val datasource: AffirmationDatasource = AffirmationDatasource()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_text_data_item_linear_fixed_data_set_list)
+        setContentView(R.layout.activity_custom_data_item_linear_fixed_data_set_list)
         setViews()
     }
 
     private fun setViews() {
-        recyclerView.adapter = AffirmationAdapter(datasource.listAffirmationsUntil(100))
+        recyclerView.adapter = CardMessageAdapter(datasource.listCardsUntil(10))
     }
 }

@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.presentation
+package com.rodriguesporan.uilists.data
 
 import com.rodriguesporan.uilists.model.Affirmation
 

@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/medium_space"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
+    android:paddingStart="@dimen/medium_space"
+    android:paddingEnd="@dimen/medium_space"
     tools:text="Affirmation number #00" />
