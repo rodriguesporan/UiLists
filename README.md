@@ -7,7 +7,7 @@
 5) nested lists
 6) custom data item grid dynamic data set list
 
-*all them made with recyclerviewadapter. If anyone works with list adapter mark _list_adapter*
+*all them made with recycler view adapter. If anyone works with list adapter mark _list_adapter*
 
 
 Simple linear text recycler view

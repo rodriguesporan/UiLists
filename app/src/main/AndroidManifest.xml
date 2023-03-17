@@ -14,7 +14,7 @@
         android:theme="@style/Theme.UiLists"
         tools:targetApi="31">
         <activity
-            android:name=".TextDataItemLinearFixedDataSetListActivity"
+            android:name=".presentation.TextDataItemLinearFixedDataSetListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
