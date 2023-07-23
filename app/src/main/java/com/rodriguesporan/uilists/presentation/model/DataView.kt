@@ -20,5 +20,5 @@ internal sealed class DataView(
     data class BrandImage(
         override val title: String,
         val image: Bitmap
-    ) : DataView(title, 0)
+    ) : DataView(title, R.layout.brand_avatar_list_item)
 }
