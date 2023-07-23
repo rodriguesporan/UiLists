@@ -7,7 +7,7 @@ import com.rodriguesporan.uilists.R
 import com.rodriguesporan.uilists.holder.CardMessageViewHolder
 import com.rodriguesporan.uilists.model.CardMessage
 
-internal class CardMessageAdapter(
+internal class CustomDataItemAdapter(
     private val cards: List<CardMessage>
 ) : RecyclerView.Adapter<CardMessageViewHolder>() {
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/medium_space"
-    tools:context=".presentation.CustomDataItemLinearFixedDataSetListActivity">
+    tools:context=".presentation.ui.CustomDataItemLinearFixedDataSetListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

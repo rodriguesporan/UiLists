@@ -1,24 +1,32 @@
-package com.rodriguesporan.uilists.presentation
+package com.rodriguesporan.uilists.presentation.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.adapter.AffirmationAdapter
-import com.rodriguesporan.uilists.data.AffirmationDatasource
+import com.rodriguesporan.uilists.adapter.SimpleDataItemAdapter
+import com.rodriguesporan.uilists.presentation.viewmodel.SimpleDataItemViewModel
+import kotlinx.coroutines.launch
 
-internal class TextDataItemLinearFixedDataSetListActivity : AppCompatActivity() {
+internal class SimpleDataItemLinearFixedDataSetListActivity : AppCompatActivity() {
 
+    private val viewModel: SimpleDataItemViewModel by viewModels { SimpleDataItemViewModel.Factory }
     private val recyclerView: RecyclerView by lazy { findViewById(R.id.recycler_view) }
-    private val datasource: AffirmationDatasource = AffirmationDatasource()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_text_data_item_linear_fixed_data_set_list)
-        setViews()
+        setContentView(R.layout.activity_simple_data_item_linear_fixed_data_set_list)
+        collectStates()
+        viewModel.getItems()
     }
 
-    private fun setViews() {
-        recyclerView.adapter = AffirmationAdapter(datasource.listAffirmationsUntil(100))
+    private fun collectStates() {
+        lifecycleScope.launch {
+            viewModel.uiState.collect { items ->
+                recyclerView.adapter = SimpleDataItemAdapter(items)
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ import com.rodriguesporan.uilists.R
 import com.rodriguesporan.uilists.holder.AffirmationViewHolder
 import com.rodriguesporan.uilists.model.Affirmation
 
-internal class AffirmationAdapter(
+internal class SimpleDataItemAdapter(
     private val affirmationsDataset: List<Affirmation>
 ): RecyclerView.Adapter<AffirmationViewHolder>() {
 

@@ -4,6 +4,7 @@
     package="com.rodriguesporan.uilists">
 
     <application
+        android:name="com.rodriguesporan.uilists.di.UiListsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +15,7 @@
         android:theme="@style/Theme.UiLists"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.CustomDataItemLinearFixedDataSetListActivity"
+            android:name=".presentation.ui.CustomDataItemLinearFixedDataSetListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.TextDataItemLinearFixedDataSetListActivity"
+            android:name=".presentation.ui.SimpleDataItemLinearFixedDataSetListActivity"
             android:exported="true">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
