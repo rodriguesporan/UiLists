@@ -7,22 +7,24 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.rodriguesporan.uilists.di.UiListsApplication
-import com.rodriguesporan.uilists.domain.usecase.SimpleDataItemUseCase
 import com.rodriguesporan.uilists.domain.model.Affirmation
+import com.rodriguesporan.uilists.domain.usecase.GetAffirmationsUseCase
+import com.rodriguesporan.uilists.presentation.model.DataView
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 internal class SimpleDataItemViewModel(
-    private val useCase: SimpleDataItemUseCase
+    private val useCase: GetAffirmationsUseCase
 ) : ViewModel() {
-    private val _uiState = MutableStateFlow<List<Affirmation>>(emptyList())
-    val uiState: StateFlow<List<Affirmation>> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow<List<DataView>>(emptyList())
+    val uiState: StateFlow<List<DataView>> = _uiState.asStateFlow()
 
     fun getItems() {
         viewModelScope.launch {
-            _uiState.emit(useCase.getItems(100))
+            val items: List<Affirmation> = useCase()
+            _uiState.emit(items.map { item -> DataView.SingleLabel(item.title) })
         }
     }
 
@@ -30,7 +32,7 @@ internal class SimpleDataItemViewModel(
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val appContainer = (this[APPLICATION_KEY] as UiListsApplication).appContainer
-                SimpleDataItemViewModel(appContainer.simpleDataItemDatasource)
+                SimpleDataItemViewModel(appContainer.getSimpleAffirmationsUseCase)
             }
         }
     }

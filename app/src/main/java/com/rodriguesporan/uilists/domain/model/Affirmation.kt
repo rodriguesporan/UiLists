@@ -1,10 +1,10 @@
 package com.rodriguesporan.uilists.domain.model
 
-internal data class Affirmation(
-    val id: Int
-) {
-    val text: String
-        get() = "$AFFIRMATION_TEXT$id"
-}
+import android.graphics.Bitmap
 
-private const val AFFIRMATION_TEXT = "Affirmation id #"
+internal data class Affirmation(
+    val id: Int,
+    val title: String,
+    val description: String? = null,
+    val image: Bitmap? = null
+)

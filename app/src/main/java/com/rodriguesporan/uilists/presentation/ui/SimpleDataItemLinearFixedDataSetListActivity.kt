@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.presentation.adapter.SimpleDataItemAdapter
+import com.rodriguesporan.uilists.presentation.adapter.DataViewAdapter
 import com.rodriguesporan.uilists.presentation.viewmodel.SimpleDataItemViewModel
 import kotlinx.coroutines.launch
 
@@ -25,7 +25,7 @@ internal class SimpleDataItemLinearFixedDataSetListActivity : AppCompatActivity(
     private fun collectStates() {
         lifecycleScope.launch {
             viewModel.uiState.collect { items ->
-                recyclerView.adapter = SimpleDataItemAdapter(items)
+                recyclerView.adapter = DataViewAdapter(items)
             }
         }
     }
