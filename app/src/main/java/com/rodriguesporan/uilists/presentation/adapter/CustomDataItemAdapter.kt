@@ -1,11 +1,11 @@
-package com.rodriguesporan.uilists.adapter
+package com.rodriguesporan.uilists.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.holder.CardMessageViewHolder
-import com.rodriguesporan.uilists.model.CardMessage
+import com.rodriguesporan.uilists.presentation.holder.CardMessageViewHolder
+import com.rodriguesporan.uilists.domain.model.CardMessage
 
 internal class CustomDataItemAdapter(
     private val cards: List<CardMessage>

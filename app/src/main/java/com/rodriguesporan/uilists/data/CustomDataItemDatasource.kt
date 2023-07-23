@@ -1,7 +1,7 @@
 package com.rodriguesporan.uilists.data
 
-import com.rodriguesporan.uilists.domain.CustomDataItemUseCase
-import com.rodriguesporan.uilists.model.CardMessage
+import com.rodriguesporan.uilists.domain.usecase.CustomDataItemUseCase
+import com.rodriguesporan.uilists.domain.model.CardMessage
 
 internal class CustomDataItemDatasource: CustomDataItemUseCase {
 

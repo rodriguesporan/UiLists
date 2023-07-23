@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.adapter.CustomDataItemAdapter
+import com.rodriguesporan.uilists.presentation.adapter.CustomDataItemAdapter
 import com.rodriguesporan.uilists.presentation.viewmodel.CustomDataItemViewModel
 import kotlinx.coroutines.launch
 

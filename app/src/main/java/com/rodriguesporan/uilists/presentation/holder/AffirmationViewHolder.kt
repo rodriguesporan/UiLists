@@ -1,10 +1,10 @@
-package com.rodriguesporan.uilists.holder
+package com.rodriguesporan.uilists.presentation.holder
 
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.model.Affirmation
+import com.rodriguesporan.uilists.domain.model.Affirmation
 
 internal class AffirmationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

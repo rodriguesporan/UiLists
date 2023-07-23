@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.rodriguesporan.uilists.di.UiListsApplication
-import com.rodriguesporan.uilists.domain.CustomDataItemUseCase
-import com.rodriguesporan.uilists.model.CardMessage
+import com.rodriguesporan.uilists.domain.usecase.CustomDataItemUseCase
+import com.rodriguesporan.uilists.domain.model.CardMessage
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

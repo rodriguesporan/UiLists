@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.rodriguesporan.uilists.di.UiListsApplication
-import com.rodriguesporan.uilists.domain.SimpleDataItemUseCase
-import com.rodriguesporan.uilists.model.Affirmation
+import com.rodriguesporan.uilists.domain.usecase.SimpleDataItemUseCase
+import com.rodriguesporan.uilists.domain.model.Affirmation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

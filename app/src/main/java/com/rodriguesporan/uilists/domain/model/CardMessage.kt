@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.model
+package com.rodriguesporan.uilists.domain.model
 
 internal data class CardMessage(
     val id: Int,

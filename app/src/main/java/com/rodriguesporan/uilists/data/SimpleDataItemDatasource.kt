@@ -1,7 +1,7 @@
 package com.rodriguesporan.uilists.data
 
-import com.rodriguesporan.uilists.domain.SimpleDataItemUseCase
-import com.rodriguesporan.uilists.model.Affirmation
+import com.rodriguesporan.uilists.domain.usecase.SimpleDataItemUseCase
+import com.rodriguesporan.uilists.domain.model.Affirmation
 
 internal class SimpleDataItemDatasource: SimpleDataItemUseCase {
 

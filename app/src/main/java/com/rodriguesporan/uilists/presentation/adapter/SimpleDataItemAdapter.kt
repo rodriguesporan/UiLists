@@ -1,12 +1,12 @@
-package com.rodriguesporan.uilists.adapter
+package com.rodriguesporan.uilists.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.holder.AffirmationViewHolder
-import com.rodriguesporan.uilists.model.Affirmation
+import com.rodriguesporan.uilists.presentation.holder.AffirmationViewHolder
+import com.rodriguesporan.uilists.domain.model.Affirmation
 
 internal class SimpleDataItemAdapter(
     private val affirmationsDataset: List<Affirmation>
