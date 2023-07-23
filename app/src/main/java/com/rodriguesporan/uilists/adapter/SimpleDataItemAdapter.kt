@@ -16,7 +16,7 @@ internal class AffirmationAdapter(
         val itemView: View = LayoutInflater
             .from(parent.context)
             .inflate(
-                R.layout.activity_text_data_item_linear_fixed_data_set_list_item,
+                R.layout.activity_simple_data_item_linear_fixed_data_set_list_item,
                 parent,
                 false
             )
