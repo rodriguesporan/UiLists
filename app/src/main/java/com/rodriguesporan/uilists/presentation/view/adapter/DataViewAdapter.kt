@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.presentation.adapter
+package com.rodriguesporan.uilists.presentation.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.presentation.holder.BrandAvatarViewHolder
-import com.rodriguesporan.uilists.presentation.holder.DoubleLabelViewHolder
-import com.rodriguesporan.uilists.presentation.holder.SingleLabelViewHolder
+import com.rodriguesporan.uilists.presentation.view.holder.UserAvatarViewHolder
+import com.rodriguesporan.uilists.presentation.view.holder.DoubleLabelViewHolder
+import com.rodriguesporan.uilists.presentation.view.holder.SingleLabelViewHolder
 import com.rodriguesporan.uilists.presentation.model.DataView
 
 internal class DataViewAdapter(
@@ -16,8 +16,9 @@ internal class DataViewAdapter(
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
+            R.layout.simple_label_list_item -> SingleLabelViewHolder(parent.inflate(viewType))
             R.layout.double_label_list_item -> DoubleLabelViewHolder(parent.inflate(viewType))
-            R.layout.brand_avatar_list_item -> BrandAvatarViewHolder(parent.inflate(viewType))
+            R.layout.user_avatar_list_item -> UserAvatarViewHolder(parent.inflate(viewType))
             else -> SingleLabelViewHolder(parent.inflate(viewType))
         }
     }
@@ -26,7 +27,7 @@ internal class DataViewAdapter(
         when (holder) {
             is SingleLabelViewHolder -> holder.bind(dataset[position] as DataView.SingleLabel)
             is DoubleLabelViewHolder -> holder.bind(dataset[position] as DataView.DoubleLabel)
-            is BrandAvatarViewHolder -> holder.bind(dataset[position] as DataView.BrandImage)
+            is UserAvatarViewHolder -> holder.bind(dataset[position] as DataView.UserImage)
         }
     }
 

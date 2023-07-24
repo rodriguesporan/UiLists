@@ -17,8 +17,8 @@ internal sealed class DataView(
         val description: String
     ) : DataView(title, R.layout.double_label_list_item)
 
-    data class BrandImage(
+    data class UserImage(
         override val title: String,
         val image: Bitmap
-    ) : DataView(title, R.layout.brand_avatar_list_item)
+    ) : DataView(title, R.layout.user_avatar_list_item)
 }

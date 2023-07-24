@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.presentation.holder
+package com.rodriguesporan.uilists.presentation.view.holder
 
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
