@@ -2,7 +2,7 @@ package com.rodriguesporan.uilists.data.datasource
 
 import com.rodriguesporan.uilists.domain.model.Affirmation
 
-internal class CustomAffirmationDatasource : AffirmationDatasource {
+internal class CustomAffirmationDataSource : AffirmationDataSource {
 
     override fun getItems(): List<Affirmation> {
         return (0..9).map { id ->
