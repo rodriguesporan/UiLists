@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.presentation.view
+package com.rodriguesporan.uilists.presentation.view.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
