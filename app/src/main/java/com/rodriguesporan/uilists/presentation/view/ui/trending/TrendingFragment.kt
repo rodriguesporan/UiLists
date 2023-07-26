@@ -17,12 +17,6 @@ internal class TrendingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
         if (savedInstanceState == null) {
             childFragmentManager.commit {
                 setReorderingAllowed(true)
@@ -33,26 +27,35 @@ internal class TrendingFragment : Fragment() {
                 )
             }
         }
-        return inflater.inflate(R.layout.fragment_trending, container, false).also { view ->
-            tabLayout = view.findViewById(R.id.tabLayout)
-            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    when (tab?.position) {
-                        0 -> replaceWithTrendingRepositoriesFragment()
-                        1 -> replaceWithTrendingDevelopersFragment()
-                    }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_trending, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tabLayout = view.findViewById(R.id.tabLayout)
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> replaceWithTrendingRepositoriesFragment()
+                    1 -> replaceWithTrendingDevelopersFragment()
                 }
+            }
 
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
 
-                }
+            }
 
-                override fun onTabReselected(tab: TabLayout.Tab?) {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
 
-                }
+            }
 
-            })
-        }
+        })
     }
 
     private fun replaceWithTrendingRepositoriesFragment() {
