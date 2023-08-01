@@ -7,24 +7,28 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.rodriguesporan.uilists.UiListsApplication
-import com.rodriguesporan.uilists.domain.model.Affirmation
-import com.rodriguesporan.uilists.domain.usecase.GetAffirmationsUseCase
-import com.rodriguesporan.uilists.presentation.model.DataView
+import com.rodriguesporan.uilists.di.session.SessionProvider
+import com.rodriguesporan.uilists.presentation.model.RoutingUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-internal class SimpleDataItemViewModel(
-    private val useCase: GetAffirmationsUseCase
-) : ViewModel() {
-    private val _uiState = MutableStateFlow<List<DataView>>(emptyList())
-    val uiState: StateFlow<List<DataView>> = _uiState.asStateFlow()
+internal class RoutingViewModel(
+    session: SessionProvider
+): ViewModel() {
 
-    fun getItems() {
+    private val _uiState = MutableStateFlow<RoutingUiState>(RoutingUiState.Loading)
+    val uiState: StateFlow<RoutingUiState> = _uiState.asStateFlow()
+
+    init {
+        val state = if (session.isAuthorized()) {
+            RoutingUiState.Authorized
+        } else {
+            RoutingUiState.NotAuthenticated
+        }
         viewModelScope.launch {
-            val items: List<Affirmation> = useCase()
-            _uiState.emit(items.map { item -> DataView.SingleLabel(item.title) })
+            _uiState.emit(state)
         }
     }
 
@@ -32,7 +36,7 @@ internal class SimpleDataItemViewModel(
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val appContainer = (this[APPLICATION_KEY] as UiListsApplication).appContainer
-                SimpleDataItemViewModel(appContainer.getSimpleAffirmationsUseCase)
+                RoutingViewModel(appContainer.session)
             }
         }
     }

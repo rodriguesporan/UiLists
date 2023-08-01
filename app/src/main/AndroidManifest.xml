@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.rodriguesporan.uilists">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:name="com.rodriguesporan.uilists.di.UiListsApplication"
+        android:name="com.rodriguesporan.uilists.UiListsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,29 +14,52 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UiLists"
+        android:theme="@style/Theme.UiLists.Starting"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.view.ui.NavHostActivity"
+            android:name=".presentation.view.ui.RoutingActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.view.ui.authentication.LoginActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="login"
+                    android:scheme="uilists" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.view.ui.NavHostActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.view.ui.CustomDataItemLinearFixedDataSetListActivity"
+            android:exported="true">
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".presentation.view.ui.CustomDataItemLinearFixedDataSetListActivity"
-            android:exported="true">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            -->
         </activity>
         <activity
             android:name=".presentation.view.ui.SimpleDataItemLinearFixedDataSetListActivity"
             android:exported="true">
+
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

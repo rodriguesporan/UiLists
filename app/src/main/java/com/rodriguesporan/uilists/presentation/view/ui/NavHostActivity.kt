@@ -1,7 +1,10 @@
 package com.rodriguesporan.uilists.presentation.view.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rodriguesporan.uilists.R
@@ -15,6 +18,7 @@ internal class NavHostActivity : AppCompatActivity() {
     private val bottomNavigation: BottomNavigationView by lazy { findViewById(R.id.bottom_navigation) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nav_host)
         if (savedInstanceState == null) {
@@ -74,6 +78,12 @@ internal class NavHostActivity : AppCompatActivity() {
                 FollowingFragment.newInstance(),
                 FOLLOWING_FRAGMENT_TAG
             )
+        }
+    }
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, NavHostActivity::class.java)
         }
     }
 }

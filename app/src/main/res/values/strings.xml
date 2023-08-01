@@ -5,4 +5,5 @@
     <string name="trending">trending</string>
     <string name="starred">starred</string>
     <string name="following">following</string>
+    <string name="login_at_github">Login at GitHub</string>
 </resources>

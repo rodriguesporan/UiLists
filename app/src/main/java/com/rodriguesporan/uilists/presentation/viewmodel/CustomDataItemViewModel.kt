@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.AP
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.rodriguesporan.uilists.di.UiListsApplication
+import com.rodriguesporan.uilists.UiListsApplication
 import com.rodriguesporan.uilists.domain.model.Affirmation
 import com.rodriguesporan.uilists.domain.usecase.GetAffirmationsUseCase
 import com.rodriguesporan.uilists.presentation.model.DataView
