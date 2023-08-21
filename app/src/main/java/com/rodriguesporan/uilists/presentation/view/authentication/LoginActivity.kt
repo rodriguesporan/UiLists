@@ -13,9 +13,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.data.GatewayApiUri.GATEWAY_API_PATH_AUTHORIZE
-import com.rodriguesporan.uilists.data.GatewayApiUri.buildGatewayApiUri
-import com.rodriguesporan.uilists.di.factories.LoginViewModelFactory
+import com.rodriguesporan.uilists.data.api.GatewayApiUri.GATEWAY_API_PATH_AUTHORIZE
+import com.rodriguesporan.uilists.data.api.GatewayApiUri.buildGatewayApiUri
+import com.rodriguesporan.uilists.di.factories.viewmodel.LoginViewModelFactory
 import com.rodriguesporan.uilists.presentation.model.LoginUiEvent
 import com.rodriguesporan.uilists.presentation.model.LoginUiState
 import com.rodriguesporan.uilists.presentation.view.home.HomeActivity

@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.di.factories.SimpleDataViewModelFactory
+import com.rodriguesporan.uilists.di.factories.viewmodel.SimpleDataViewModelFactory
 import com.rodriguesporan.uilists.presentation.adapter.DataViewAdapter
 import com.rodriguesporan.uilists.presentation.view.simple.SimpleDataViewModel
 import kotlinx.coroutines.launch

@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.rodriguesporan.uilists.di.factories.RoutingViewModelFactory
+import com.rodriguesporan.uilists.di.factories.viewmodel.RoutingViewModelFactory
 import com.rodriguesporan.uilists.presentation.model.RoutingUiState
 import com.rodriguesporan.uilists.presentation.view.authentication.LoginActivity
 import com.rodriguesporan.uilists.presentation.view.home.HomeActivity

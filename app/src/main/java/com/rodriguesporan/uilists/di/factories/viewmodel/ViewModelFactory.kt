@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.di.factories
+package com.rodriguesporan.uilists.di.factories.viewmodel
 
 import androidx.lifecycle.ViewModelProvider
 

@@ -12,7 +12,7 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.di.factories.HomeViewModelFactory
+import com.rodriguesporan.uilists.di.factories.viewmodel.HomeViewModelFactory
 import com.rodriguesporan.uilists.presentation.model.HomeUiState
 import com.rodriguesporan.uilists.presentation.view.following.FollowingFragment
 import com.rodriguesporan.uilists.presentation.view.starred.StarredFragment

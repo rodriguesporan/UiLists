@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.di.factories.CustomDataViewModelFactory
+import com.rodriguesporan.uilists.di.factories.viewmodel.CustomDataViewModelFactory
 import com.rodriguesporan.uilists.presentation.adapter.DataViewAdapter
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.di.factories
+package com.rodriguesporan.uilists.di.factories.viewmodel
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
@@ -11,7 +11,7 @@ internal object HomeViewModelFactory: ViewModelFactory {
     override fun create(): ViewModelProvider.Factory = viewModelFactory {
         initializer {
             val appContainer = (this[APPLICATION_KEY] as UiListsApplication).appContainer
-            HomeViewModel(appContainer.fetchGitHubRepositoriesUseCase)
+            HomeViewModel(appContainer.fetchRepositoriesUseCaseFactory.create())
         }
     }
 }

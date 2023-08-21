@@ -1,9 +1,10 @@
-package com.rodriguesporan.uilists.di.factories
+package com.rodriguesporan.uilists.di.factories.api
 
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.rodriguesporan.uilists.data.GatewayApiUri.buildGatewayApiUri
+import com.rodriguesporan.uilists.data.api.GatewayApiUri
+import com.rodriguesporan.uilists.di.factories.Factory
 import com.rodriguesporan.uilists.di.session.SessionProvider
 import okhttp3.OkHttpClient
 import retrofit2.Converter
@@ -13,11 +14,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 internal abstract class ApiServiceFactory<T>(
     private val service: Class<T>,
     private val session: SessionProvider
-) {
+): Factory<T> {
 
-    fun create(): T {
+    override fun create(): T {
         return Retrofit.Builder()
-            .baseUrl(buildGatewayApiUri().toString())
+            .baseUrl(GatewayApiUri.buildGatewayApiUri().toString())
             .addConverterFactory(createConverterFactory())
             .client(buildOkHttpClient())
             .build()

@@ -2,7 +2,7 @@ package com.rodriguesporan.uilists.data.model
 
 import com.google.gson.annotations.SerializedName
 
-internal data class GitHubRepositoryDTO(
+internal data class RepositoryDTO(
     @SerializedName("id")
     val id: Int,
 

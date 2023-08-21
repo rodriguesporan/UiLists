@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.di.factories
+package com.rodriguesporan.uilists.di.factories.api
 
 import com.rodriguesporan.uilists.data.api.RepositoriesApi
 import com.rodriguesporan.uilists.di.session.SessionProvider

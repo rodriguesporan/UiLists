@@ -1,4 +1,4 @@
-package com.rodriguesporan.uilists.data
+package com.rodriguesporan.uilists.data.api
 
 import android.net.Uri
 import com.rodriguesporan.uilists.BuildConfig.GATEWAY_API_HOST

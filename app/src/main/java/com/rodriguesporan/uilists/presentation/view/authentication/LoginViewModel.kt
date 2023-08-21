@@ -3,10 +3,10 @@ package com.rodriguesporan.uilists.presentation.view.authentication
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rodriguesporan.uilists.data.model.GitHubUserTokenDTO
+import com.rodriguesporan.uilists.data.model.UserTokenDTO
 import com.rodriguesporan.uilists.data.model.UserTokenRequestParams
 import com.rodriguesporan.uilists.di.session.SessionProvider
-import com.rodriguesporan.uilists.domain.usecase.FetchGitHubUserTokenUseCase
+import com.rodriguesporan.uilists.domain.usecase.FetchUserTokenUseCase
 import com.rodriguesporan.uilists.presentation.model.LoginUiEvent
 import com.rodriguesporan.uilists.presentation.model.LoginUiState
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
 internal class LoginViewModel(
-    private val fetchGitHubUserTokenUseCase: FetchGitHubUserTokenUseCase,
+    private val fetchUserTokenUseCase: FetchUserTokenUseCase,
     private val session: SessionProvider
 ) : ViewModel() {
 
@@ -40,7 +40,7 @@ internal class LoginViewModel(
         val request = UserTokenRequestParams(code = gitHubIdentityCode)
         viewModelScope.launch {
             try {
-                val response: GitHubUserTokenDTO = fetchGitHubUserTokenUseCase(request)
+                val response: UserTokenDTO = fetchUserTokenUseCase(request)
                 session.saveAccessToken(response.accessToken)
                 _uiEvent.emit(LoginUiEvent.OpenTrendingScreen)
             } catch (e: Exception) {

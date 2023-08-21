@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-internal data class GitHubUserTokenDTO(
+internal data class UserTokenDTO(
     @SerializedName("access_token")
     val accessToken: String,
 
