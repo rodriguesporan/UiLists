@@ -20,6 +20,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "GITHUB_CLIENT_SECRET_VALUE", keystoreProperties["GITHUB_CLIENT_SECRET_VALUE"]
         buildConfigField "String", "GITHUB_CLIENT_ID_VALUE", keystoreProperties["GITHUB_CLIENT_ID_VALUE"]
+        buildConfigField "String", "GATEWAY_API_SCHEME", keystoreProperties["GATEWAY_API_SCHEME"]
+        buildConfigField "String", "GATEWAY_API_HOST", keystoreProperties["GATEWAY_API_HOST"]
+        buildConfigField "String", "GATEWAY_API_PORT", keystoreProperties["GATEWAY_API_PORT"]
     }
 
     buildTypes {

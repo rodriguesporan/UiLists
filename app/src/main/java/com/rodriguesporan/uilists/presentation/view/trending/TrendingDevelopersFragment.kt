@@ -9,13 +9,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
+import com.rodriguesporan.uilists.di.factories.SimpleDataViewModelFactory
 import com.rodriguesporan.uilists.presentation.adapter.DataViewAdapter
-import com.rodriguesporan.uilists.presentation.view.simple.SimpleDataItemViewModel
+import com.rodriguesporan.uilists.presentation.view.simple.SimpleDataViewModel
 import kotlinx.coroutines.launch
 
 internal class TrendingDevelopersFragment : Fragment() {
 
-    private val viewModel: SimpleDataItemViewModel by viewModels { SimpleDataItemViewModel.Factory }
+    private val viewModel: SimpleDataViewModel by viewModels { SimpleDataViewModelFactory.create() }
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {

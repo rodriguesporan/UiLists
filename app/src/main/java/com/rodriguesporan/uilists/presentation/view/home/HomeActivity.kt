@@ -12,6 +12,7 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rodriguesporan.uilists.R
+import com.rodriguesporan.uilists.di.factories.HomeViewModelFactory
 import com.rodriguesporan.uilists.presentation.model.HomeUiState
 import com.rodriguesporan.uilists.presentation.view.following.FollowingFragment
 import com.rodriguesporan.uilists.presentation.view.starred.StarredFragment
@@ -22,7 +23,7 @@ internal class HomeActivity : AppCompatActivity() {
     private val bottomNavigation: BottomNavigationView by lazy { findViewById(R.id.bottom_navigation) }
     private val placeholderContainer: ConstraintLayout by lazy { findViewById(R.id.placeholder_container) }
     private val contentContainer: ConstraintLayout by lazy { findViewById(R.id.content_container) }
-    private val viewModel: HomeViewModel by viewModels { HomeViewModel.Factory }
+    private val viewModel: HomeViewModel by viewModels { HomeViewModelFactory.create() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()

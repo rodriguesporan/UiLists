@@ -31,13 +31,4 @@ internal class RoutingViewModel(
             _uiState.emit(state)
         }
     }
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val appContainer = (this[APPLICATION_KEY] as UiListsApplication).appContainer
-                RoutingViewModel(appContainer.session)
-            }
-        }
-    }
 }

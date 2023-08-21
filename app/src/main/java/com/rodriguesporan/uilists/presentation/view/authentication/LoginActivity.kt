@@ -13,7 +13,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.data.GitHubUri.buildGitHubUriAuthorize
+import com.rodriguesporan.uilists.data.GatewayApiUri.GATEWAY_API_PATH_AUTHORIZE
+import com.rodriguesporan.uilists.data.GatewayApiUri.buildGatewayApiUri
+import com.rodriguesporan.uilists.di.factories.LoginViewModelFactory
 import com.rodriguesporan.uilists.presentation.model.LoginUiEvent
 import com.rodriguesporan.uilists.presentation.model.LoginUiState
 import com.rodriguesporan.uilists.presentation.view.home.HomeActivity
@@ -23,7 +25,7 @@ internal class LoginActivity : AppCompatActivity() {
     private val buttonLogin: AppCompatButton by lazy { findViewById(R.id.button_login) }
     private val placeholderContainer: ConstraintLayout by lazy { findViewById(R.id.placeholder_container) }
     private val contentContainer: RelativeLayout by lazy { findViewById(R.id.content_container) }
-    private val viewModel: LoginViewModel by viewModels { LoginViewModel.Factory }
+    private val viewModel: LoginViewModel by viewModels { LoginViewModelFactory.create() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -40,7 +42,7 @@ internal class LoginActivity : AppCompatActivity() {
 
     private fun setupListeners() {
         buttonLogin.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, buildGitHubUriAuthorize())
+            val intent = Intent(Intent.ACTION_VIEW, buildGatewayApiUri(GATEWAY_API_PATH_AUTHORIZE))
             startActivity(intent)
         }
     }
@@ -77,7 +79,8 @@ internal class LoginActivity : AppCompatActivity() {
                 finish()
             }
             LoginUiEvent.OpenErrorScreen -> {
-                // TODO
+                placeholderContainer.visibility = View.GONE
+                contentContainer.visibility = View.VISIBLE
             }
         }
     }

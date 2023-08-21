@@ -4,8 +4,8 @@ import com.rodriguesporan.uilists.data.datasource.GitHubRepositoriesDataSource
 import com.rodriguesporan.uilists.data.model.GitHubRepositoryDTO
 import com.rodriguesporan.uilists.domain.repository.GitHubRepositoriesRepository
 
-internal class GitHubRepositoriesRepositoryImpl(
-    private val dataSource: GitHubRepositoriesDataSource
+internal class GitHubRepositoriesRepositoryImpl<T>(
+    private val dataSource: GitHubRepositoriesDataSource<T>
 ): GitHubRepositoriesRepository {
 
     override suspend fun fetchRepositories(): List<GitHubRepositoryDTO> {

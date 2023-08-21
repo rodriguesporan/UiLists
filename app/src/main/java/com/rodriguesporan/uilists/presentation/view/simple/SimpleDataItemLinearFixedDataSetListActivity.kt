@@ -6,12 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
+import com.rodriguesporan.uilists.di.factories.SimpleDataViewModelFactory
 import com.rodriguesporan.uilists.presentation.adapter.DataViewAdapter
 import kotlinx.coroutines.launch
 
 internal class SimpleDataItemLinearFixedDataSetListActivity : AppCompatActivity() {
 
-    private val viewModel: SimpleDataItemViewModel by viewModels { SimpleDataItemViewModel.Factory }
+    private val viewModel: SimpleDataViewModel by viewModels { SimpleDataViewModelFactory.create() }
     private val recyclerView: RecyclerView by lazy { findViewById(R.id.recycler_view) }
 
     override fun onCreate(savedInstanceState: Bundle?) {

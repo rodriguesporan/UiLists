@@ -31,12 +31,4 @@ internal class HomeViewModel(
             }
         }
     }
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val appContainer = (this[APPLICATION_KEY] as UiListsApplication).appContainer
-                HomeViewModel(appContainer.fetchGitHubRepositoriesUseCase)
-            }
-        }
-    }
 }

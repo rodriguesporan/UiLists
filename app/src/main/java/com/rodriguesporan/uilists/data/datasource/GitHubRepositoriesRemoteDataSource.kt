@@ -2,12 +2,13 @@ package com.rodriguesporan.uilists.data.datasource
 
 import com.rodriguesporan.uilists.data.api.RepositoriesApi
 import com.rodriguesporan.uilists.data.model.GitHubRepositoryDTO
+import com.rodriguesporan.uilists.di.factories.RepositoriesApiServiceFactory
 
 internal class GitHubRepositoriesRemoteDataSource(
-    private val api: RepositoriesApi
-): GitHubRepositoriesDataSource {
+    apiFactory: RepositoriesApiServiceFactory
+): GitHubRepositoriesDataSource<RepositoriesApi>(apiFactory) {
 
     override suspend fun fetchRepositories(): List<GitHubRepositoryDTO> {
-        return api.fetchRepositories()
+        return apiFactory.create().fetchRepositories()
     }
 }

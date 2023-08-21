@@ -1,12 +1,7 @@
 package com.rodriguesporan.uilists.presentation.view.custom
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
-import com.rodriguesporan.uilists.application.UiListsApplication
 import com.rodriguesporan.uilists.domain.model.Affirmation
 import com.rodriguesporan.uilists.domain.usecase.GetAffirmationsUseCase
 import com.rodriguesporan.uilists.presentation.model.DataView
@@ -15,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-internal class CustomDataItemViewModel(
+internal class CustomDataViewModel(
     private val useCase: GetAffirmationsUseCase
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<List<DataView>>(emptyList())
@@ -31,15 +26,6 @@ internal class CustomDataItemViewModel(
                 )
             }
             _uiState.emit(dataViews)
-        }
-    }
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val appContainer = (this[APPLICATION_KEY] as UiListsApplication).appContainer
-                CustomDataItemViewModel(appContainer.getCustomAffirmationsUseCase)
-            }
         }
     }
 }
