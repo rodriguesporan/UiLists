@@ -5,22 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.rodriguesporan.uilists.R
-import com.rodriguesporan.uilists.di.factories.viewmodel.CustomDataViewModelFactory
+import com.rodriguesporan.uilists.data.model.RepositoriesDTO
+import com.rodriguesporan.uilists.data.model.RepositoryDTO
 import com.rodriguesporan.uilists.presentation.adapter.DataViewAdapter
-import com.rodriguesporan.uilists.presentation.view.custom.CustomDataViewModel
-import kotlinx.coroutines.launch
+import com.rodriguesporan.uilists.presentation.mapper.DataViewMapper.convertFromRepositoryDTO
+import com.rodriguesporan.uilists.presentation.model.DataView
 
 internal class TrendingRepositoriesFragment : Fragment() {
 
-    private val viewModel: CustomDataViewModel by viewModels { CustomDataViewModelFactory.create() }
+    private var repositories: RepositoriesDTO? = null
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        repositories =
+            arguments?.getParcelable(TRENDING_REPOSITORIES_FRAGMENT_ARG_PARAM_REPOSITORIES)
+    }
+
+    private fun mapRepositories(repositories: List<RepositoryDTO>): List<DataView> {
+        return repositories.map { convertFromRepositoryDTO(it) }
     }
 
     override fun onCreateView(
@@ -33,22 +38,23 @@ internal class TrendingRepositoriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.recycler_view)
-        collectStates()
-        viewModel.getItems()
-    }
-
-    private fun collectStates() {
-        lifecycleScope.launch {
-            viewModel.uiState.collect { items ->
-                recyclerView.adapter = DataViewAdapter(items)
-            }
+        repositories?.let {
+            recyclerView.adapter = DataViewAdapter(mapRepositories(it.collection))
         }
     }
 
     companion object {
         const val TRENDING_REPOSITORIES_FRAGMENT_TAG = "TRENDING_REPOSITORIES_FRAGMENT_TAG"
+        private const val TRENDING_REPOSITORIES_FRAGMENT_ARG_PARAM_REPOSITORIES =
+            "TRENDING_REPOSITORIES_FRAGMENT_ARG_PARAM_REPOSITORIES"
 
         @JvmStatic
-        fun newInstance(): Fragment = TrendingRepositoriesFragment()
+        fun newInstance(
+            repositories: RepositoriesDTO?
+        ): Fragment = TrendingRepositoriesFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable(TRENDING_REPOSITORIES_FRAGMENT_ARG_PARAM_REPOSITORIES, repositories)
+            }
+        }
     }
 }

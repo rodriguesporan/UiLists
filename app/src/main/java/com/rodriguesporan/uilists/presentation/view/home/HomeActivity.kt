@@ -59,6 +59,19 @@ internal class HomeActivity : AppCompatActivity() {
                 contentContainer.visibility = View.GONE
             }
 
+            is HomeUiState.Success -> {
+                supportFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    add(
+                        R.id.fragment_container,
+                        TrendingFragment.newInstance(),
+                        TrendingFragment.TRENDING_FRAGMENT_TAG
+                    )
+                }
+                placeholderContainer.visibility = View.GONE
+                contentContainer.visibility = View.VISIBLE
+            }
+
             else -> {
                 placeholderContainer.visibility = View.GONE
                 contentContainer.visibility = View.VISIBLE

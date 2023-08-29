@@ -5,15 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import com.google.android.material.tabs.TabLayout
 import com.rodriguesporan.uilists.R
+import com.rodriguesporan.uilists.di.factories.viewmodel.HomeViewModelFactory
+import com.rodriguesporan.uilists.presentation.view.home.HomeViewModel
 import com.rodriguesporan.uilists.presentation.view.trending.TrendingDevelopersFragment.Companion.TRENDING_DEVELOPERS_FRAGMENT_TAG
 import com.rodriguesporan.uilists.presentation.view.trending.TrendingRepositoriesFragment.Companion.TRENDING_REPOSITORIES_FRAGMENT_TAG
 
 internal class TrendingFragment : Fragment() {
 
     private lateinit var tabLayout: TabLayout
+    private val viewModel: HomeViewModel by activityViewModels { HomeViewModelFactory.create() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +26,7 @@ internal class TrendingFragment : Fragment() {
                 setReorderingAllowed(true)
                 add(
                     R.id.trending_fragment_container,
-                    TrendingRepositoriesFragment.newInstance(),
+                    TrendingRepositoriesFragment.newInstance(viewModel.repositories),
                     TRENDING_REPOSITORIES_FRAGMENT_TAG
                 )
             }
@@ -62,7 +66,7 @@ internal class TrendingFragment : Fragment() {
         childFragmentManager.commit {
             replace(
                 R.id.trending_fragment_container,
-                TrendingRepositoriesFragment.newInstance(),
+                TrendingRepositoriesFragment.newInstance(viewModel.repositories),
                 TRENDING_REPOSITORIES_FRAGMENT_TAG
             )
         }

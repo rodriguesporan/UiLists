@@ -1,7 +1,10 @@
 package com.rodriguesporan.uilists.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 internal data class RepositoryDTO(
     @SerializedName("id")
     val id: Int,
@@ -19,5 +22,5 @@ internal data class RepositoryDTO(
     val htmlUrl: String,
 
     @SerializedName("description")
-    val description: String
-)
+    val description: String?
+): Parcelable

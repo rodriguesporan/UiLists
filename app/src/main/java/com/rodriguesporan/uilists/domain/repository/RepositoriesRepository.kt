@@ -1,7 +1,7 @@
 package com.rodriguesporan.uilists.domain.repository
 
-import com.rodriguesporan.uilists.data.model.RepositoryDTO
+import com.rodriguesporan.uilists.data.model.RepositoriesDTO
 
 internal interface RepositoriesRepository {
-    suspend fun fetchRepositories(): List<RepositoryDTO>
+    suspend fun fetchRepositories(): RepositoriesDTO
 }
